@@ -16,6 +16,7 @@
 		8451B36A2797E400008B98A1 /* SeguePushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451B3692797E400008B98A1 /* SeguePushViewController.swift */; };
 		8451B36C2797FCE1008B98A1 /* SeguePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451B36B2797FCE1008B98A1 /* SeguePresentViewController.swift */; };
 		8451B36E27980103008B98A1 /* CodePushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451B36D27980103008B98A1 /* CodePushViewController.swift */; };
+		8451B3702798152B008B98A1 /* CodePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451B36F2798152B008B98A1 /* CodePresentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8451B3692797E400008B98A1 /* SeguePushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeguePushViewController.swift; sourceTree = "<group>"; };
 		8451B36B2797FCE1008B98A1 /* SeguePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeguePresentViewController.swift; sourceTree = "<group>"; };
 		8451B36D27980103008B98A1 /* CodePushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePushViewController.swift; sourceTree = "<group>"; };
+		8451B36F2798152B008B98A1 /* CodePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePresentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				8451B3692797E400008B98A1 /* SeguePushViewController.swift */,
 				8451B36B2797FCE1008B98A1 /* SeguePresentViewController.swift */,
 				8451B36D27980103008B98A1 /* CodePushViewController.swift */,
+				8451B36F2798152B008B98A1 /* CodePresentViewController.swift */,
 			);
 			path = ScreenTransitionExample;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				8451B36E27980103008B98A1 /* CodePushViewController.swift in Sources */,
 				8451B35A2797E0FB008B98A1 /* ViewController.swift in Sources */,
 				8451B3562797E0FB008B98A1 /* AppDelegate.swift in Sources */,
+				8451B3702798152B008B98A1 /* CodePresentViewController.swift in Sources */,
 				8451B36C2797FCE1008B98A1 /* SeguePresentViewController.swift in Sources */,
 				8451B3582797E0FB008B98A1 /* SceneDelegate.swift in Sources */,
 			);
