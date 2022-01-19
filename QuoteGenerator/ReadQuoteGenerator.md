@@ -55,3 +55,28 @@
     - viewfmf re-sizing하고 전체적인 인터페이스의 레이아웃 관리
     - 다른 ViewController들과 앱을 구성함
 - <span style="color:yellow">쉽게 말해서, 화면 하나를 관리하는 단위가 ViewController라고 이해 하면 된다.</span>
+
+## 3. AutoLayout
+ - 두 view사이의 관계에 제약(Constrain)을 이용하 View의크기와 위치를 지정하는 것
+ - AutoLayout은 아이폰의 다양한 해상도비율에 대응하기 위해 나온 개념
+    - IPhone이 다양해지면서 기기에 맞는 해상도도 다양해졌는데, 모든 기기에 맞는 해상도를 대응하기위해 나온 개념이다!!!
+- IOS개발에서 AutoLayout을 이용한 화면 구성은 <span style="color:yellow">StoryBoard</span> 에서 진행하게 된다.
+    - StoryBoard는 사용자의 인터페이스(UI)를 시각적으로 표현하여 Contents화면간의 연결을 보여주는 도구
+    - <span style="color:yellow">StoryBoard</span>는 Scene으로 구성되며, 각 Scene은 View & ViewController를 나타낸다.
+        1. Add New Constraint
+            - View간의 제약 조건을 설정할 수 있는 메뉴
+            - Top / Trailing(right) / Bottom / Leading(left) / 너비&높이 를 설정가능
+        2. Align
+            - View간의 정렬을 설정 가능하다.
+        3. Resolve Auto Layout Issues
+            - AutoLayout관련 이슈들을 해결하는 옵션 제공
+            - 현재의 제약조건을 기준으로 View를 Update하거나, 제약을 업데이트 가능
+            - 딱히 이 메뉴는 많이 사용하지 않는다.
+
+## 4. IBOulet & IBAction
+- StoryBoard뿐 아니라 Code에서 UI를 접근 가능하게 해준다.
+
+    1. <span style="color:yellow">IBOulet</span> : StoryBoard에 등록된 UI오브젝트에 접근하여 control 하기 위해, 변수에 Binding한 UI-Object변수를 의미한다.
+        - 쉽게 말해서 UI를 Code로 다루기 위해 사용하는 변수!!
+    1. <span style="color:yellow">IBAction</span> : 동작을 정의하는 함수로, 어떠한 동작을 할 것인지를 정하고 그것을 연결시켜주는 역할을 한다
+- IBOulet은 변수이고 / IBAction은 함수이다!!
