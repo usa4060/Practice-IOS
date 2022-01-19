@@ -21,7 +21,7 @@
 ### 1. UIKit
 - <span style="color:yellow">Cocoa touch Framework</span> 란 IOS개발환경을 구축하기 위한 최상위 프레임워크
     - 이 중, 가장 많이 사용되는 프레임워크가 UIKit & Foundation이다.
-        - foundation : 기본적 데이터타입, 자료구조, 각종 구조체, 네트워크 통신 등 기본적인 프로그램의 중심을 담당한다.
+        - foundation : 기본적 데이터타입, 자료구조, 각종 구조체, 네트워크 통신 등 기본적인 프로그램의 중심을 담당한다
         - <span style="color:yellow">**UIKit**</span> : 사용자의 인터페이스를 관리하고, 이벤트를 처리하는것이 주 목적이다.
 
 - UIViewController, UIView와 같은 UI가 붙는 클래스들을 사용하기 위해서는 반드시 UIKit을 import해 줘야 한다.

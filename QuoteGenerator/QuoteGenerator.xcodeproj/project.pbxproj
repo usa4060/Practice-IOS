@@ -4,7 +4,7 @@
 	classes = {
 	};
 	objectVersion = 55;
-	objects = {
+	objects = { 
 
 /* Begin PBXBuildFile section */
 		846DEBAA2797A78E00108058 /*  Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DEBA92797A78E00108058 /*  Quote.swift */; };
