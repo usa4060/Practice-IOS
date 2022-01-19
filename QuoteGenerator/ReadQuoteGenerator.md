@@ -94,3 +94,9 @@
 - size가 더 줄어드는것에 대한 제약을 : Content Compression Resistance (priority가 낮은게 더 압축(compression)됨)
 - 이러한 제약들에도 Priority가 있어서, Priority 따라 Content의 크기가 고유 사이즈보다 늘어나게 되었을 때, size를 늘릴건지 줄일건지를 결정 하게됨
     - Priority값은 0 ~ 1000사이의 값을 가진다.
+
+### 2. Random값 추출
+-   ```swift
+    let random = arc4random_uniform(정수) 
+    // 0...정수 값 중 하나를 랜덤추출하여 저장함
+    ```
