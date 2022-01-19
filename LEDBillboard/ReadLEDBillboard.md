@@ -53,7 +53,7 @@
     - 화면 전환용 객체 세그웨이(Segueway)를 사용하여 화면 전환하기
     <br><br>
 
-    ## **1. View Controller에서 다른 View Controller를 호출하여 전환하기**
+    ### **1. View Controller에서 다른 View Controller를 호출하여 전환하기**
     - 직접 호출한다는 의미에서 "presentation 방식" 이라고도 불린다
     
         **Declaration**
@@ -90,7 +90,7 @@
         - completion 
             - 이전 화면으로 돌아가는것이 완료되면 completion에 정의된 클로저가 호출되어 logic을 수행한다
         <br><br><br><br>
-    ## **2. Navigation Controller를 사용하여 화면 전환하기**
+    ### **2. Navigation Controller를 사용하여 화면 전환하기**
     _Navigation Controller는  View Controller의 전환을 직접 Controll하고, App의 Navigation정보를 표시하는 역할을 함과 동시에, Navigation Stack으로 Child View Controller를 관리한다._
 
     **Declaration**
@@ -119,7 +119,7 @@
     - animated
         - 이전 화면으로 넘어갈 때 애니메이션을 사용 할 것인지 아닌지를Boolean값으로 넘겨 줌
     <br><br><br><br>
-    ## **3. 화면 전환용 객체 세그웨이(Segueway)를 사용하여 화면 전환하기**
+    ### **3. 화면 전환용 객체 세그웨이(Segueway)를 사용하여 화면 전환하기**
     _SegueWay는 두개의 ViewController사이에 연결된 화면 객체를 의미한다_
     - StoryBoard를 통해, 출발지와 목적지를 직접 지정하는 방식을 "세그웨이를 이용한 화면전환" 이라고 한다.
     - 세그웨이를 이용하면, 따로 코드작성 없이 StoryBoard 만으로도 화면전환이 가능하다.
@@ -143,8 +143,81 @@
             <br><br>
         ### 2. Manual Segueway 
         - 출발지가 ViewController자체인 경우를 Manual Segueway라고 한다.
-
+        <br/><br/><br/><br/>
     
+    ## 3. ViewController Life Cycle
+    _**UIViewController의 객체에는 View객체를 관리하는 매서드들이 내장되어 있다.**_
+    - 이 매서드들은 각자 자신들이 필요한 타이밍에 IOS 시스템에 의해 자동으로 호출된다.
+    - 따라서 UIViewController의 Child Class를 생성하고 <span style="color:yellow">해당 매서드들을 override하여
+    Life Cycle 상황에 맞게 적절한 Logic을 추가</span> 하는것이 가능하다!
+    - 이러한 Life-Cycle의 상태는 4가지로 구분된다.
+        1. Appearing : 뷰가 화면에 나타나는 중
+        2. Appeard : 뷰가 화면에 나타나는게 완료 된 상황
+        3. Disappearing : 뷰가 화면에서 사라지는 중
+        4. Disappeard : 뷰가 화면에서 사라진 상태
+    
+    _**그렇다면 Life-Cycle에 따라 자동으로 호출되는 메서드는 어떤 것 들이 있을까?**_
+
+    1. <span style="color:yellow">ViewDidLoad()</span>
+        - ViewController의 모든 View들이 메모리에 Load되었을 때 실행
+        - 그렇기 때문에, 메모리에 처음 로드될 때 딱 한번만 실행 됨
+            - _**보통 Life-Cycle 내에서 딱 한번만 호출 할 행위들을 이 메소드안에 정의한다.**_  
+            ex) View와 관련된 초기화 작업, 네트워크 호출 과 같은 일회성 작업들
+    2. <span style="color:yellow">ViewWillAppear()</span>
+        - View가 계증에 추가되고, 실제 스크린에 보이기 직전마다 호출된다.
+        - 마찬가지로 다른View에서 돌아올 때도 호출이 된다.
+        - View와 관련된 초기화 작업을 이 매서드 안에 정의함
+    3. <span style="color:yellow">ViewDidAppear()</span>
+        - ViewController의 View가 계층에 추가가 된 후 호출된다.
+        - 보통, View를 나타낼 때 필요한 추가 작업이나 애니메이션을 시작하는 작업을 이 매서드에 정의함
+    4. <span style="color:yellow">ViewWillDisappear()</span>
+        - ViewController의 View가 계층에서 사라지기 직전에 호출된다.
+        - 보통, View가 작업한 내용을 되돌리거나 최종적으로 데이터를 처리하는 작업을 이 매서드에 정의함
+    5. <span style="color:yellow">ViewDidDisappear()</span>
+        - ViewController의 View가 계층에서 사라지고 난 후에 호출된다.
+        - View가 사라지는 것과 관련된 작업을 한다.
+    <br/><br/><br/><br/>
+
+    ## 4. 화면간 데이터 전달하기
+
+    - 화면간 데이터를 전달 할 때에는, ViewController의 타입을 다운캐스팅 해주어 Child ViewController의 프로퍼티에 접근을 한다.
+
+        ```swift
+        @IBAction func tapCodePushBtn(_ sender: UIButton) {
+            guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CodePushViewController") as? CodePushViewController
+            else {return}
+            // 이렇게 intrantiateViewController라는 함수가 StoryBoard에서 ViewController에 정의해 준 id로, 해당하는 ViewController를 찾아서 인스턴스화 해준다!!
+        
+            // 또한, viewController 변수를 CodePushViewController로 다운캐스팅 해줘서 CodePushViewController의 프로퍼티인 name에 접근할 수 있게 해준다.
+ 
+            viewController.name = "Yongin"
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        ```
+    <br/><be/>
+    - 전환된 화면에서, 이전의 화면으로 Data를 넘길때에는 주로 <span style="color:yellow">_delegate_</span>라는 패턴을 사용한다.
+        - delegate = 위임자 라고 생각하면 된다.
+        - 즉 delegate패턴이란, _**일을 갖고있는 객체가 다른 객체에게 자신의 일을 위임하는 패턴이다.**_
+        - delegate 패턴을 사용할 때, delegate변수는 반드시 _**weak**_ 로 선언해야 한다.
+            - 그렇지 않으면 메모리 누수 발생
+                ```swift
+                protocol SendDataDelegate: AnyObject {
+                    func SendData(name:String)
+                }
+                
+                // ..... viewcontroller class 내부 ....... //
+                weak var delegate : SendDataDelegate?
+                ```
+    - segueway로 화면 전환을 할때, data를 넘겨주기 가장 좋은 위치는 <span style="color:yellow">_**prepare**메서드_</span> 이다.
+        - 이 prepare라는 메서드는 override되면, segueway가 실행되기 직전에 시스템에 의해서 자동으로 호출된다.
+        ```swift
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let viewController = segue.destination as? SeguePushViewController{
+                // 이 'segue.deftination'프로퍼티를 통해 전환하려는 ViewController의 인스턴스를 가져올 수 있다.
+                viewController.name = "yongin"
+            }
+        }
+        ```
 ---
 ## 개발하면서 생겼던 error & 알아야 할 기능
 
@@ -176,6 +249,31 @@ _(화면에 보이는 <span style>하나의 뷰는 1개의 ViewController를 가
          self.navigationController?.pushViewController(viewController, animated: true)
     }
 ``` 
+
+
+<br/><br/><br/>
+### 3. Code를 이용해서 Presentation을 통해 화면 전환을 하는 방법
+<br/>
+
+```swift
+@IBAction func tapCodePushBtn(_ sender: UIButton) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CodePresentViewController")
+        else {return}
+        // 이렇게 'intrantiateViewController'라는 함수가, 
+        // StoryBoard에서 ViewController에 정의해준 id(identifier)에 
+        // 해당하는 ViewController를 찾아서 인스턴스화 해준다!!
+
+        // 또한, 옵셔널 바인딩을 하므로 안전하게 guard문으로 감싸준다.
+        self.present(viewController, animated: true, completion: nil)
+        // 이렇게 present를 하게 되면 전환된 View는 FullScreen이 아닌 Modal로 보여진다.
+
+        //그럴 땐, 
+        // viewController.modalPresentationStyle = .fullScreen
+        // 를 사용하게 되면, FullScreen으로 덮여진다.
+
+    }
+``` 
+
 
 <br/><br/><br/>
 ### 3. Left-Edge Swipe Gesture는 언제나 사용 가능하다???
