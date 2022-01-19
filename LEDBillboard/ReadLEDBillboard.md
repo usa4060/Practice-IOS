@@ -233,7 +233,7 @@
     <br>
 _(화면에 보이는 <span style>하나의 뷰는 1개의 ViewController를 가지고 있고, NavigationController는 여기에 종속되어 있다는 것을 명심할것)_
 
-<br/><br/><br/>
+    <br/><br/><br/>
 ### 2. Code를 이용해서 화면전환을 할 때, ViewController를 인스턴스화 해주는 방법
 <br/>
 
@@ -281,3 +281,47 @@ _(화면에 보이는 <span style>하나의 뷰는 1개의 ViewController를 가
 
 * Left-Edge Swipe Gesture로 이전 화면으로 돌아가는 것은, NavigationViewController를 이용해서 화면을 Push했을 때만 사용이 가능하다.
     - _**presentation 방식으로 화면이 전환 된 경우에는 불가능하다!(따로 구현을 해줘야 함)**_
+
+<br/><br/><br/>
+
+### 4. 삼항 연산자
+
+- 변수 선언 + if ~ else 구문 2가지를 한 줄로 쓸 수 있는 간편한 방법
+- example
+    ```swift
+    self.y_btn.alpha = color == UIColor.yellow ? 1 : 0.2
+    self.p_btn.alpha = color == UIColor.purple ? 1 : 0.2
+    self.g_btn.alpha = color == UIColor.green ? 1 : 0.2
+
+    // color 가 UIColor.XXX기 맞다면 self.X_btn.alpha는 1이고, 아니면 0,2 라는 의미이다.
+    ```
+
+<br/><br/><br/>
+
+### 5. delegate란 무엇일까?
+_**내가 개인적으로 고민하고 나온 답을 서술하겠음.**_
+- 우선 delegate는 프로토콜로 선언한다
+    - 그 이유는, 프로토콜은 내가 사용하고자 하는 기능들의 청사진이므로 실제로 동작하는 구현부는 따로 만들어야하기 때문이다.
+- A와 B라는 ViewController가 있다고 가정하자
+    - A에서 XX_delegate를 protocol로 선언한다.
+        - 이때, protocol내부에는 매서드의 원형과 해당 매서드가 필요로하는 매개변수에 대한 정보만 있다.
+    - A에서 XX_delegate타입의 변수를 선언한다.
+    - A에서 B화면으로 돌아갈 때 (ex dismiss / popnavigation) XX_delegate가 필요로 하는 매개변수에 data들을 넣어서 
+    self.delegate?._메서드_ 를 호출한다. (delegate에 선언된 메서드가 매개변수가 없을 수 있음).  
+        <center><span style="color:red">_**중요**_</span></center> 
+        -
+        - 여기서 메서드를 호출 한다는 의미는, 실제 해당 메서드가 실행이 된다는 의미이다!!
+        - 하지만 A에서는 프로토콜이 선언만 되어있을 뿐, 실제 해당 매서드의 구현부는 없음!!
+        - 매서드의 구현부는 B ViewController에 구현이 되어있어야 한다!!!!
+    - 따라서, B ViewController에서는 해당 프로토콜을 채택 해주어야 한다.
+    - 그 후, 프로토콜에 있는 매서드의 실제 구현부를 작성한다.
+    - 그리고, delegate의 일을 위임받아서 수행해야 하는 위치에서  
+        ```swift
+        viewcontroller.delegate? = self
+        ````  
+        를 선언 해준다.
+    - 그렇게 되면, A ViewController에서 delegate의 메서드가 실행이 되면 B ViewController에서 실제 수행을 하게 된다.
+    - 이러한 원리로, A에서 데이터만을 넘겨주고 실제 데이터에 대한 처리는 B에서 해주는 이러한 방식이 가능하게 된다!!!
+
+    -----
+    
