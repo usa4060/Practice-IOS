@@ -175,7 +175,7 @@ _(화면에 보이는 <span style>하나의 뷰는 1개의 ViewController를 가
         // 또한, 옵셔널 바인딩을 하므로 안전하게 guard문으로 감싸준다.
          self.navigationController?.pushViewController(viewController, animated: true)
     }
-```
+``` 
 
 <br/><br/><br/>
 ### 3. Left-Edge Swipe Gesture는 언제나 사용 가능하다???
