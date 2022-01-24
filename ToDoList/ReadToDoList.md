@@ -19,9 +19,9 @@
 - 여러개의 Cell을 가지고 있고 하나의 열과 여러줄 의 행을 가지고 있으며, 수직으로만 스크롤이 가능하다.
 - Section을 활용하여 행을 그룹화하여 콘텐츠를 좀 더 쉽게 탐색할 수 있다.
 - Section의 헤더와 푸터에 View를 구성하여 추가적인 정보를 표시할 수 있다.
-- TableView를 이용하기 위해서는, UITableViewDataSource 와 UITableViewDelegate 프로토콜을 채택해야 한다.
+- TableView를 이용하기 위해서는, UITableViewDataSource 와 UITableViewDelegate 프로토콜을 채택해야 한다. 
      - Datasource : Data를 받아서 View를 그려주는 역할을 한다.
-        - 총 Section이 몇개인지, Section의 행은 몇개인지, 행에 어떤 정보를 표시 할 것인지를 정의
+        - 총 Section이 몇 개인지, Section의 행은 몇개인지, 행에 어떤 정보를 표시 할 것인지를 정의
      - Delegate : TableView의 동작과, 외관을 담당한다.
         - View가 변경되는 사항을 담당하여, View는 Delegate에 의존하여 Updata된다. 
         - 행의 높이, 행을 선택하면 취할 행위를 정의 할 수 있다.
