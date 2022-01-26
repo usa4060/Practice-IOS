@@ -33,7 +33,7 @@
     ### CollectionView Layouts
     - UICollectionViewLayout : Layout객체를 통해서 CollectionView내의 Item배치 및 시각적인 스타일을 결정한다.  
     <br/>
-    - **<span style="color:yellow">UICollectionViewFlowLayout</span>** : Layout객체를 사용해서 각 항목을 정렬할 수 있는데, 해당 Class를 사용하게 되면 Cell을 원하는 형태로 정렬할 수 있다.
+    - <span style="color:yellow">**UICollectionViewFlowLayout**</span>: Layout객체를 사용해서 각 항목을 정렬할 수 있는데, 해당 Class를 사용하게 되면 Cell을 원하는 형태로 정렬할 수 있다.
         - FlowLayout은 Cell의 선형경로를 배치하는데, 최대한 행을 따라 많은 Cell을 배치하고 현재의 행에 더이상 Cell이 들어가지 않는다면 새로운 행을 만들어 채워나간다.
         - FlowLayout을 통해 수평 스크롤 / 수직 스크롤이 가능하다.  
         <br/>
@@ -64,7 +64,7 @@
     <br/>
     - CollectionView와 관련된 핵심 객체들의 관계  
     **_( blog에 관련 내용 작성 할 예정 )_**
-    
+
 
 
             
