@@ -49,11 +49,22 @@
             4. Section에 header/footer가 존재한다면 이것들의 크기를 정한다.
             5. Layout의 스크롤 방향을 설정한다.  
     <br/>
-    - UICollectionViewDataSource
+    - **<span style="color:yellow">UICollectionViewDataSource</span>**
         - CollectionView로 보여지는 Contents들을 관리하는 객체
         - DataSource를 관리하기 위해서는 UICollectionViewDataSource Protocol을 준수해야한다.
+            - 해당 protocol에서 optional로 선언되지 않은 func들은 필수적으로 구현해야 함.
         - DataSource의 역할은, 
             1. CollectionView에 몇 개의 Section이 있는지 
             2. 특정 Section에 몇 개의 Cell이 있는지
-            3. 특정 Section이나 Cell에 Contents를 보여주기 위해, 어떤 View를 사용할 것인지에 대한 정보를 CollectionView에 제공한다.
+            3. 특정 Section이나 Cell에 Contents를 보여주기 위해, 어떤 View를 사용할 것인지에 대한 정보를 CollectionView에 제공한다.  
+    <br/>
+    - **<span style="color:yellow">UICollectionViewDelegate</span>**
+        - Contents의 표현, 사용자와의 상호작용과 관련된 것들을 관리하는 객체
+        - DataSource와는 다르게, Delegate는 필수로 구현하지 않아도 괜찮다.  
+    <br/>
+    - CollectionView와 관련된 핵심 객체들의 관계  
+    **_( blog에 관련 내용 작성 할 예정 )_**
+    
+
+
             
