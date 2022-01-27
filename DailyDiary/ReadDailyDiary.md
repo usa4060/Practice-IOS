@@ -65,6 +65,8 @@
     - CollectionView와 관련된 핵심 객체들의 관계  
     **_( blog에 관련 내용 작성 할 예정 )_**
 
-
-
-            
+---
+## 개발하면서 생겼던 errors & 알아야 할 기능
+<br/><br/>
+## 1. TextView와 ScrollView와의 관계
+- TextView는 ScrollView를 상속받기 때문에, TextView 내부의 내용이 아무리 길어져도 자동으로 Scroll이 생성되어 제약없이 읽어나가기 가능
