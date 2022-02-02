@@ -63,7 +63,6 @@
         - DataSource와는 다르게, Delegate는 필수로 구현하지 않아도 괜찮다.  
                             <br/>
     - CollectionView와 관련된 핵심 객체들의 관계  
-    **_( blog에 관련 내용 작성 할 예정 )_**
 
 ---
 ## 개발하면서 생겼던 errors & 알아야 할 기능  <br/>
