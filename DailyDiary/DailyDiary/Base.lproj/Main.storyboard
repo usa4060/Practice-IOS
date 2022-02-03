@@ -47,7 +47,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -122,6 +121,7 @@
                         <outlet property="collectionView" destination="fS1-Ph-URG" id="cum-7e-iQ9"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="886" y="-28"/>
         </scene>
@@ -196,13 +196,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="일기 작성" id="MVO-0c-qga">
-                        <barButtonItem key="rightBarButtonItem" title="등록" id="cfr-46-wQu">
-                            <connections>
-                                <action selector="confirmButton:" destination="Hpa-r7-G9u" id="Zj4-vt-ZjB"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="등록" id="cfr-46-wQu"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="confirmButton" destination="cfr-46-wQu" id="hLH-Ix-wFt"/>
                         <outlet property="contentsTextView" destination="lRH-Tu-DHg" id="Xqd-XN-lHU"/>
                         <outlet property="dateTextField" destination="cHf-Kd-nTn" id="VIR-HM-sTf"/>
                         <outlet property="titleTextField" destination="F4f-qX-OT1" id="RSZ-zD-wnl"/>

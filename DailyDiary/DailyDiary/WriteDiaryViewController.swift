@@ -13,7 +13,7 @@ class WriteDiaryViewController: UIViewController {
     
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
-    
+    @IBOutlet weak var confirmButton: UIBarButtonItem!
     private let datePicker = UIDatePicker()
     private var diaryDate : Date? // dataPicker에서 가져올 Date를 저장하는 프로퍼티
     
@@ -21,6 +21,8 @@ class WriteDiaryViewController: UIViewController {
         super.viewDidLoad()
         self.configureContentsTextView()
         self.configureDatePicker()
+        self.confirmButton.isEnabled = false
+        
     }
     
     private func configureContentsTextView(){   // 처음 TextView에는 border설정이 되어있지 않기 때문에, Custom해서 만들어주었다.
@@ -47,11 +49,7 @@ class WriteDiaryViewController: UIViewController {
                                                                             
     }
     
-    
-    @IBAction func confirmButton(_ sender: UIBarButtonItem) {
-    }
-    
-    @objc private func datePickerValueDidChange(_ datePicker : UIDatePicker){
+        @objc private func datePickerValueDidChange(_ datePicker : UIDatePicker){
         let formmater = DateFormatter() // DateFormmater객체는 날짜와 텍스트를 변환해주는 역할을 한다.
         formmater.dateFormat = "yyyy년 MM월 dd일(EEEEE)"   // date를 나타냇 포맷 형식을 설정해줌.
         formmater.locale = Locale(identifier: "ko_KR")  // 한글로 설정
