@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84369D1927AB64A700C46A7D /* DailyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84369D1827AB64A700C46A7D /* DailyDiary.swift */; };
 		8450A71B27A1122500FA76C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450A71A27A1122500FA76C4 /* AppDelegate.swift */; };
 		8450A71D27A1122500FA76C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450A71C27A1122500FA76C4 /* SceneDelegate.swift */; };
 		8450A71F27A1122500FA76C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450A71E27A1122500FA76C4 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84369D1827AB64A700C46A7D /* DailyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDiary.swift; sourceTree = "<group>"; };
 		8450A71727A1122500FA76C4 /* DailyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8450A71A27A1122500FA76C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8450A71C27A1122500FA76C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				8450A73427A2733F00FA76C4 /* StarCell.swift */,
 				8450A73627A279E200FA76C4 /* WriteDiaryViewController.swift */,
 				8450A73827A27A7200FA76C4 /* DiaryDetailViewController.swift */,
+				84369D1827AB64A700C46A7D /* DailyDiary.swift */,
 			);
 			path = DailyDiary;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				8450A73727A279E200FA76C4 /* WriteDiaryViewController.swift in Sources */,
 				8450A73527A2733F00FA76C4 /* StarCell.swift in Sources */,
 				8450A71B27A1122500FA76C4 /* AppDelegate.swift in Sources */,
+				84369D1927AB64A700C46A7D /* DailyDiary.swift in Sources */,
 				8450A71D27A1122500FA76C4 /* SceneDelegate.swift in Sources */,
 				8450A73927A27A7200FA76C4 /* DiaryDetailViewController.swift in Sources */,
 				8450A73127A271A400FA76C4 /* DiaryCell.swift in Sources */,
