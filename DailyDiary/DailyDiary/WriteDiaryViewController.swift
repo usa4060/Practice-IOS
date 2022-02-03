@@ -1,18 +1,18 @@
-//
-//  WriteDiaryViewController.swift
-//  DailyDiary
-//
-//  Created by admin on 2022/01/27.
-//
-
 import UIKit
+
+
+enum DiaryEditorMode {
+    case new
+    case edit(IndexPath, DailyDiary)
+}
+
 
 protocol WriteDiaryViewDelegate: AnyObject{
     func didSelectRegister(diary : DailyDiary)
 }
 
 class WriteDiaryViewController: UIViewController {
-
+    
     @IBOutlet weak var dateTextField: UITextField!
     
     @IBOutlet weak var contentsTextView: UITextView!
@@ -21,16 +21,41 @@ class WriteDiaryViewController: UIViewController {
     private let datePicker = UIDatePicker()
     private var diaryDate : Date? // dataPicker에서 가져올 Date를 저장하는 프로퍼티
     weak var delegate: WriteDiaryViewDelegate?
-    
+    var diaryEditorMode : DiaryEditorMode = .new
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureContentsTextView()
         self.configureDatePicker()
+        self.configureEditMode()
         self.confirmButton.isEnabled = false
         self.configureInputField()
         
     }
+    
+    private func configureEditMode(){
+        switch self.diaryEditorMode {
+        case let .edit(_ , diary):
+            self.titleTextField.text = diary.title
+            self.contentsTextView.text = diary.contents
+            self.dateTextField.text = dateToString(date: diary.date)
+            self.diaryDate = diary.date
+            self.confirmButton.title = "수정"
+        default: break;
+            
+            
+            
+        }
+    }
+    
+    
+    private func dateToString(date:Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yy년 MM월 dd일(EEEEE)"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.string(from: date)
+    }
+    
     
     private func configureContentsTextView(){   // 처음 TextView에는 border설정이 되어있지 않기 때문에, Custom해서 만들어주었다.
         let borderColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
@@ -54,7 +79,7 @@ class WriteDiaryViewController: UIViewController {
         
         self.dateTextField.inputView = self.datePicker // 이렇게 하면, textField를 선택했을 때, text입력이 아닌 datePicker화면이 나타나게 된다.
         
-                                                                            
+        
     }
     
     private func configureInputField(){
@@ -69,7 +94,18 @@ class WriteDiaryViewController: UIViewController {
         guard let contents = self.contentsTextView.text else {return}
         guard let date = self.diaryDate else {return}
         let diary  = DailyDiary(title: title, contents: contents, date: date, isStar: false)
-        self.delegate?.didSelectRegister(diary: diary)
+        
+        switch self.diaryEditorMode{
+        case .new: self.delegate?.didSelectRegister(diary: diary)
+        
+        case let .edit(IndexPath, _):
+            NotificationCenter.default.post(name: NSNotification.Name("editDiary"),
+                                            object: diary,
+                                            userInfo: ["indexPath.row" : IndexPath.row])
+        }
+        
+        
+       
         self.navigationController?.popViewController(animated: true)
         
     }
@@ -80,7 +116,7 @@ class WriteDiaryViewController: UIViewController {
         self.diaryDate = datePicker.date    // datePicker에서 선택된 date의 값을 diaryDate에 저장해줌
         self.dateTextField.text = formmater.string(from: datePicker.date)   // diaryDate에 저장된 날짜 정보를 화먼의 dateTextField에 표현해줌
         self.dateTextField.sendActions(for: .editingChanged)    // dateTextfield는 현재, datePicker의 형태로 되어있기 때문에, 실제 Text를 입력할 수 없다.
-                                                                // 그렇기에, datePicker의 값이 변경될 때 마다, editingChanged액션을 발생시켜서 dateTextFieldDidChange를 호출한다
+        // 그렇기에, datePicker의 값이 변경될 때 마다, editingChanged액션을 발생시켜서 dateTextFieldDidChange를 호출한다
     }
     
     @objc private func  titleTextFieldDidChange(_ textFiled: UITextField){
