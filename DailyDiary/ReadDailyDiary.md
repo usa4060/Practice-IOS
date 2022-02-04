@@ -70,3 +70,4 @@
 ## 1. TextView와 ScrollView와의 관계
 - TextView는 ScrollView를 상속받기 때문에, TextView 내부의 내용이 아무리 길어져도 자동으로 Scroll이 생성되어 제약없이 읽어나가기 가능
 ## 2. Notification Center
+- 추가적으로 NotificationCenter와 Delegate의 차이 및 사용처 구분
