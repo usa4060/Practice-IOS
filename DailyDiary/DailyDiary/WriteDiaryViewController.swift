@@ -96,20 +96,17 @@ class WriteDiaryViewController: UIViewController {
         
         switch self.diaryEditorMode{
         case .new:
-            let diary  = DailyDiary(title: title, contents: contents, date: date, isStar: false)
+            let diary  = DailyDiary(uuidString: UUID().uuidString ,title: title, contents: contents, date: date, isStar: false)
             self.delegate?.didSelectRegister(diary: diary)
-        case let .edit(IndexPath, diary):
-            let diary  = DailyDiary(title: title, contents: contents, date: date, isStar: diary.isStar)
+        case let .edit(_, diary):
+            let diary  = DailyDiary(uuidString: diary.uuidString, title: title, contents: contents, date: date, isStar: diary.isStar)
             NotificationCenter.default.post(name: NSNotification.Name("editDiary"),
                                             object: diary,
-                                            userInfo: ["indexPath.row" : IndexPath.row])
+                                            userInfo: nil)
         }
-        
-        
-       
         self.navigationController?.popViewController(animated: true)
-        
     }
+    
     @objc private func datePickerValueDidChange(_ datePicker : UIDatePicker){
         let formmater = DateFormatter() // DateFormmater객체는 날짜와 텍스트를 변환해주는 역할을 한다.
         formmater.dateFormat = "yyyy년 MM월 dd일(EEEEE)"   // date를 나타냇 포맷 형식을 설정해줌.
