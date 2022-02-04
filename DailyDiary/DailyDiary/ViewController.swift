@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(editDiaryNotification(_:)), name: NSNotification.Name("editDiary"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(starDiaryNotification(_:)), name: NSNotification.Name("starDiary"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteDiaryNotification(_:)), name: NSNotification.Name("deleteDiary"), object: nil)
         self.configureCollectionView()
         self.loadDiaryList()
     }
@@ -30,6 +32,20 @@ class ViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
+    }
+    
+    @objc func deleteDiaryNotification(_ notification: Notification){
+        guard let indexPath = notification.object as? IndexPath else {return}
+        self.diaryList.remove(at: indexPath.row)
+        self.collectionView.deleteItems(at: [indexPath])
+    }
+    
+    
+    @objc func starDiaryNotification(_ notification : Notification){
+        guard let starDiary = notification.object as? [String:Any] else {return}
+        guard let isStar = starDiary["isStar"] as? Bool else {return}
+        guard let indexPath = starDiary["indexPath"] as? IndexPath else {return}
+        self.diaryList[indexPath.row].isStar = isStar
     }
     
     
@@ -125,14 +141,6 @@ extension ViewController : UICollectionViewDelegate{
         let diary = self.diaryList[indexPath.row]
         viewController.diary = diary
         viewController.indexPath = indexPath
-        viewController.delegate = self
         self.navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-extension ViewController: DiaryDetailViewDelegate {
-    func didSelectDelete(indexPath: IndexPath) {
-        self.diaryList.remove(at: indexPath.row)
-        self.collectionView.deleteItems(at: [indexPath])
     }
 }
