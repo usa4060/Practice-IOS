@@ -8,5 +8,3 @@
 ## 활용 기술
 - DispatchSourceTimer
 - UIView Animation
----
-(7th-ios-quest완료 후 작성.)
