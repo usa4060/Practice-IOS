@@ -9,7 +9,7 @@ import Foundation
 
 struct WeatherInformation : Codable{
     let weather : [Weather]
-    let temp : [Temp]
+    let temp : Temp
     let name : String
     
     enum CodingKeys : String, CodingKey{

@@ -14,6 +14,7 @@
 		844DC6DE27C4C948001807C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844DC6DD27C4C948001807C9 /* Assets.xcassets */; };
 		844DC6E127C4C948001807C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DC6DF27C4C948001807C9 /* LaunchScreen.storyboard */; };
 		844DC6E927C4D247001807C9 /* weatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DC6E827C4D247001807C9 /* weatherInformation.swift */; };
+		846FF25D27C784F2006771EB /* errorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FF25C27C784F2006771EB /* errorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		844DC6E027C4C948001807C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844DC6E227C4C948001807C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844DC6E827C4D247001807C9 /* weatherInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherInformation.swift; sourceTree = "<group>"; };
+		846FF25C27C784F2006771EB /* errorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				844DC6DF27C4C948001807C9 /* LaunchScreen.storyboard */,
 				844DC6E227C4C948001807C9 /* Info.plist */,
 				844DC6E827C4D247001807C9 /* weatherInformation.swift */,
+				846FF25C27C784F2006771EB /* errorMessage.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				844DC6D927C4C947001807C9 /* ViewController.swift in Sources */,
 				844DC6E927C4D247001807C9 /* weatherInformation.swift in Sources */,
+				846FF25D27C784F2006771EB /* errorMessage.swift in Sources */,
 				844DC6D527C4C947001807C9 /* AppDelegate.swift in Sources */,
 				844DC6D727C4C947001807C9 /* SceneDelegate.swift in Sources */,
 			);
