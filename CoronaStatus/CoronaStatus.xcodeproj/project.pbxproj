@@ -13,6 +13,8 @@
 		846FF27227C78A73006771EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846FF27027C78A73006771EB /* Main.storyboard */; };
 		846FF27427C78A75006771EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846FF27327C78A75006771EB /* Assets.xcassets */; };
 		846FF27727C78A75006771EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846FF27527C78A75006771EB /* LaunchScreen.storyboard */; };
+		846FF27F27C9C373006771EB /* CovidDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FF27E27C9C373006771EB /* CovidDetailViewController.swift */; };
+		846FF28127C9C70D006771EB /* CityCovidOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FF28027C9C70D006771EB /* CityCovidOverview.swift */; };
 		A242AF0B69D2274D83B66846 /* Pods_CoronaStatus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B7C3C7F80F145EE9325240 /* Pods_CoronaStatus.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		846FF27327C78A75006771EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846FF27627C78A75006771EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846FF27827C78A75006771EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846FF27E27C9C373006771EB /* CovidDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDetailViewController.swift; sourceTree = "<group>"; };
+		846FF28027C9C70D006771EB /* CityCovidOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCovidOverview.swift; sourceTree = "<group>"; };
 		A0B7C3C7F80F145EE9325240 /* Pods_CoronaStatus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoronaStatus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -48,7 +52,6 @@
 				592F22E2EAAAF170BE0DE7FA /* Pods-CoronaStatus.debug.xcconfig */,
 				104D35CA372D3EE249972E54 /* Pods-CoronaStatus.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +91,8 @@
 				846FF27327C78A75006771EB /* Assets.xcassets */,
 				846FF27527C78A75006771EB /* LaunchScreen.storyboard */,
 				846FF27827C78A75006771EB /* Info.plist */,
+				846FF27E27C9C373006771EB /* CovidDetailViewController.swift */,
+				846FF28027C9C70D006771EB /* CityCovidOverview.swift */,
 			);
 			path = CoronaStatus;
 			sourceTree = "<group>";
@@ -208,7 +213,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				846FF26F27C78A73006771EB /* ViewController.swift in Sources */,
+				846FF27F27C9C373006771EB /* CovidDetailViewController.swift in Sources */,
 				846FF26B27C78A73006771EB /* AppDelegate.swift in Sources */,
+				846FF28127C9C70D006771EB /* CityCovidOverview.swift in Sources */,
 				846FF26D27C78A73006771EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
